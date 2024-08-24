@@ -10,23 +10,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 #board {
-  width: 200px;
-  height: 200px;
-  background-color: wheat;
+  background-color: white;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-basis: 40%;
 }
 
 .card {
-  height: 50px;
-  width: 50px;
-  background-color: red;
+  height: 200px;
+  width: 200px;
+  background-color: grey;
   text-align: center;
   align-content: center;
+  margin: 1rem;
+  cursor: pointer;
 }
