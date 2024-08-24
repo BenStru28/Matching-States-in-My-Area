@@ -54,15 +54,18 @@ function hideContents(element) {
 function clickEvent(e) {
   if (matches.includes(e.currentTarget.id) || matches.includes(selected)) {
     selected = "";
-    hideContents(e.currentTarget);
     return;
   }
   if (selected.length) {
     const selectedElement = document.getElementById(selected);
-    if (selected.split("_")[0] === e.currentTarget.id.split("_")[0]) {
+    if (
+      selected !== e.currentTarget.id &&
+      selected.split("_img")[0] === e.currentTarget.id.split("_img")[0]
+    ) {
       selectedElement.style.backgroundColor = "blue";
       e.currentTarget.style.backgroundColor = "blue";
       matches.push(selected, e.currentTarget.id);
+      showContents(e.currentTarget);
       selected = "";
     } else {
       selectedElement.style.backgroundColor = "grey";
