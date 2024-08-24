@@ -24,21 +24,34 @@ function randomizeArray(arr) {
 }
 
 const randomInt = Math.floor(Math.random() * stateData.length - 1) + 1;
+
 let selected = "";
+
+const matches = [];
+
 function clickEvent(e) {
-  if (selected.length && selected === e.target.id) {
-    console.log("we got a match boy");
-  }
-  selected = e.target.id;
-  setTimeout(() => {
+  if (matches.includes(e.target.id) || matches.includes(selected)) {
     selected = "";
-    console.log(selected);
-  }, 2000);
-  console.log(selected);
+  }
+  if (selected.length) {
+    if (selected !== e.target.id && selected === e.target.id.split("_")[0]) {
+      document.getElementById(selected).style.backgroundColor = "blue";
+      e.target.style.backgroundColor = "blue";
+      matches.push(selected, e.target.id);
+      selected = "";
+    } else {
+      document.getElementById(selected).style.backgroundColor = "grey";
+      e.target.style.backgroundColor = "grey";
+      selected = "";
+    }
+  } else {
+    selected = e.target.id;
+    e.target.style.backgroundColor = "red";
+  }
 }
 
 function createCards() {
-  randomizeArray(stateData).forEach((state) => {
+  stateData.forEach((state) => {
     const updatedName = state.name.replace(" ", "");
     if (state.isImage) {
       const card = document.createElement("div");
