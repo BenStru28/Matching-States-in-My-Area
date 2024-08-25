@@ -19,7 +19,7 @@ const stateData = [
 
 let selected = "";
 
-const matches = [];
+let matches = [];
 function randomizeArray(arr) {
   return arr
     .map((value) => ({ value, sort: Math.random() }))
@@ -27,7 +27,17 @@ function randomizeArray(arr) {
     .map(({ value }) => value);
 }
 
-const randomInt = Math.floor(Math.random() * stateData.length - 1) + 1;
+function resetBoardEvent() {
+  const board = document.getElementById("board");
+  for (const child of board.children) {
+    child.style.backgroundColor = "white";
+    hideContents(child);
+  }
+  matches = [];
+  selected = "";
+  clearTimeout(timerId);
+  timerId = setInterval(countdown, 1000);
+}
 
 function showContents(element) {
   const textElement = element.querySelectorAll("p")[0];
@@ -42,12 +52,10 @@ function showContents(element) {
 
 function hideContents(element) {
   const textElement = element.querySelectorAll("p")[0];
+  textElement.innerHTML = "?";
   if (element.id.endsWith("_img")) {
     const imgElement = element.querySelectorAll("img")[0];
     imgElement.style.display = "none";
-    textElement.innerHTML = "?";
-  } else {
-    textElement.innerHTML = "?";
   }
 }
 
@@ -67,23 +75,42 @@ function clickEvent(e) {
       matches.push(selected, e.currentTarget.id);
       showContents(e.currentTarget);
       selected = "";
+      setTimeout((e) => {
+        const el = document.querySelector("#" + selected);
+        el.style.backgroundColor = "grey";
+        el.style.backgroundColor = "grey";
+      }, 1000);
     } else {
       selectedElement.style.backgroundColor = "grey";
       e.currentTarget.style.backgroundColor = "grey";
       hideContents(selectedElement);
       selected = "";
+      setTimeout((e) => {
+        const el = document.querySelector("#" + selected);
+        el.style.backgroundColor = "grey";
+        el.style.backgroundColor = "grey";
+      }, 1000);
     }
   } else {
     showContents(e.currentTarget);
     selected = e.currentTarget.id;
     e.currentTarget.style.backgroundColor = "red";
+    setTimeout((e) => {
+      const el = document.querySelector("#" + selected);
+      el.style.backgroundColor = "grey";
+      el.style.backgroundColor = "grey";
+    }, 1000);
   }
 }
 
 function createCards() {
-  stateData.forEach((state) => {
+  document
+    .getElementById("reset_button")
+    .addEventListener("click", resetBoardEvent);
+  randomizeArray(stateData).forEach((state) => {
     const textElement = document.createElement("p");
     textElement.innerHTML = "?";
+    textElement.id = state.name;
     textElement.classList.add("text");
     if (state.isImage) {
       const card = document.createElement("div");
@@ -116,3 +143,17 @@ function render() {
 }
 
 render();
+
+var timeLeft = 30;
+var elem = document.getElementById("timer");
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+  if (timeLeft == -1) {
+    clearTimeout(timerId);
+    doSomething();
+  } else {
+    elem.innerHTML = timeLeft + " Seconds remaining";
+    timeLeft--;
+  }
+}
