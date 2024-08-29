@@ -29,10 +29,8 @@ I began by setting up the html boilerplate. Then i began to conclude how i would
 A few unsolved problems i had was making a timer that tracks the time instead of counting down it counts up. Then stops when your finished the game.
 ## Links
 
-[GitHub](https://github.com/theamazingmrb/wdigame1.git)
+[GitHub]https://github.com/BenStru28/Matching-States-in-My-Area
 
-
-[Trello](https://trello.com/b/3ZHD1fzQ/wdi-sm-43-project1)
 I wanted to display the states around my area because i have been traveling alot recently. These are the states of the east coast surrounding DE. 
 My first source was youtube.com
 https://www.youtube.com/watch?v=bznJPt4t_4s helped me contextualize what exactly i wanted to build.
