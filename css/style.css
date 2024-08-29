@@ -18,16 +18,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width:80vw;
+  flex-wrap:wrap;
+  max-height:80vh;
 }
 
 .card {
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   background-color: rgb(255, 255, 255);
   text-align: center;
   align-content: center;
   margin: 1rem;
   cursor: pointer;
+
 }
 #h1 {
   background-color: rgb(227, 245, 37);
@@ -42,3 +46,4 @@ body {
   padding: 2rem;
   font-size: 24px;
 }
+
