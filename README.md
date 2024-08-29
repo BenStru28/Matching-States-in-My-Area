@@ -1,4 +1,38 @@
 # Matching-States-in-My-Area
+
+Matching states in my area!
+=====================
+
+## Description
+
+matching states on my area puts your memory to the test. select the questionmark to begin. this will all be off of memory, meaning you need to select the card at least 2x before you are going to be able to get a match, its reccomended that you click each matching card at least once. once the card turns grey it has been selected and flipped. once it turns blue you have a match!
+## Technologies Used
+
+-	HTML
+-	CSS
+-	JavaScript
+-.png
+
+
+## Approach Taken
+I began by setting up the html boilerplate. Then i began to conclude how i would implement the win loss clause. after styling each of the element in css. After everything was moved accordingly, i began to move forward in javascript to implemet them to make the game move along much more smoothly. After that I listed out all the cards, with the states names and the state pictures listed. then I created functions to match the arrays in order to make the cards flip. after that I had to implement the reset button, once the reset button was implemented i had to make sure the game switched back to the way it first started when the reset button was tagged.
+## Installation Instructions
+
+-download it from github!
+-Clone the repository in github and open html
+
+## Wire Frames
+
+
+
+## Unsolved Problems
+A few unsolved problems i had was making a timer that tracks the time instead of counting down it counts up. Then stops when your finished the game.
+## Links
+
+[GitHub](https://github.com/theamazingmrb/wdigame1.git)
+
+
+[Trello](https://trello.com/b/3ZHD1fzQ/wdi-sm-43-project1)
 I wanted to display the states around my area because i have been traveling alot recently. These are the states of the east coast surrounding DE. 
 My first source was youtube.com
 https://www.youtube.com/watch?v=bznJPt4t_4s helped me contextualize what exactly i wanted to build.
